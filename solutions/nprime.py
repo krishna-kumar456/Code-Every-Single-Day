@@ -24,14 +24,14 @@ prev = []
 while not quit:
 
 	user_input = input('n for next prime, q for quit')
-	print('Got user input')
+	
 	if user_input == 'q':
-		print('user pressed q')
+		
 		quit = True
 		break
 
 	if user_input == 'n':
-		print('user pressed n')
+		
 		for i in range(start, 1000):
 			if is_prime(i) and i not in prev:
 				print(i)
