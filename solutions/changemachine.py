@@ -1,6 +1,7 @@
 """ Change machine - Returns change as per user entered cost and money given.
 """
 def change_calculation(cost, amount):
+
 	half_dollar = 0
 	quarter = 0
 	dime = 0
@@ -8,6 +9,8 @@ def change_calculation(cost, amount):
 	penny = 0
 
 	diff = amount - cost
+
+	print(diff)
 
 	if diff < 0 :
 		return -1
@@ -33,7 +36,7 @@ def change_calculation(cost, amount):
 		if diff >= 0.5:
 			nickel += 1
 			diff = diff - 0.5
-		penny = diff
+		penny = int(diff)
 	return half_dollar, quarter, dime, nickel, penny
 
 
@@ -41,7 +44,7 @@ user_input_cost = int(input('Enter cost'))
 user_input_amount = float(input('Enter Amount'))
 
 result = []
-result.append(change_calculation(user_input_cost, user_input_amount))
+result = change_calculation(user_input_cost, user_input_amount)
 
 if result[0] == -1:
 	print('Please gif required cost')
