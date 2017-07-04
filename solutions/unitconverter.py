@@ -1,14 +1,5 @@
 """ Unit Converter. 
 """
-unit_col = {}
-
-class UnitConverterStore:
-	def __init__(self, unit, formula):
-		self.unit = unit 
-		self.formula = formula
-
-	if self.unit not in unit_col:
-		unit_col[self.unit] = self.formula
 
 
 
@@ -19,6 +10,28 @@ class UnitConverterFormulae:
 	def temp_cel_fahr(self, user_input):
 		return (user_input * 1.8) + 32
 
+ucf = UnitConverterFormulae()
+
+unit_store = {
+				'ftoc': ucf.temp_fahr_cel,
+				'ctof': ucf.temp_cel_fahr
+}
+
+user_input_type = input('Enter unit type')
+user_input_value = int(input('Enter value to be converted'))
+
+
+
+for item in unit_store.keys():
+	
+	if user_input_type == item:	
+		result = unit_store[item](user_input_value)
+	else:
+		result = 'Couldnt evalutate'
+		
+
+
+print('Resultant Conversion', result)
 
 
 
