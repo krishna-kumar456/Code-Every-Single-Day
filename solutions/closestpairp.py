@@ -17,7 +17,7 @@ point lies on the left of the dividing vertical and the other point lies to the 
 
 import math
 
-INF = -9999999
+INF = 9999999
 
 metricSpace = [[1,2],[3,4],[1,5],[2,6],[6,3],[4,7],[6,4],[2,9],[5,5],[7,4]]
 
@@ -30,9 +30,13 @@ def brute_force():
 	closestPair = []
 
 	for i in range(len(metricSpace)-1):
+		print(i)
 		for j in range(i+1, len(metricSpace)):
+			print(j)
 			p = metricSpace[i]
+			print(p)
 			q = metricSpace[j]
+			print(q)
 			if distance_between_2p(p[0], p[1], q[0], q[1]) < minDist:
 				minDist = distance_between_2p(p[0], p[1], q[0], q[1])
 				closestPair = [p,q]
