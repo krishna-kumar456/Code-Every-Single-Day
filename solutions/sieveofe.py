@@ -15,8 +15,15 @@ finalPrimes = []
 
 for i in range(2,userInput):
 	if numbersGeneratedFromLimit[i] == True:
-		j = i**2
-		for j in range(1, userInput):
+		for n,_ in enumerate(numbersGeneratedFromLimit):
+			j = i**2 + i*n
+			print(j)
+			numbersGeneratedFromLimit[j] = False
+			print(numbersGeneratedFromLimit)
+
+for i in numbersGeneratedFromLimit:
+	if numbersGeneratedFromLimit[i] == True:
+		print(i)
 			
 
 
