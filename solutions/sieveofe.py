@@ -10,20 +10,21 @@ Sieve of Eratosthenes.
 
 userInput = int(input('Please enter the upper limit'))
 
-numbersGeneratedFromLimit = [True for x in range(userInput)]
-finalPrimes = []
+def primes_sieve2(limit):
+    a = [False] * 2 + [True] * (limit-2)                        # Initialize the primality list
+    a[0] = a[1] = False
 
-for i in range(2,userInput):
-	if numbersGeneratedFromLimit[i] == True:
-		for n,_ in enumerate(numbersGeneratedFromLimit):
-			j = i**2 + i*n
-			print(j)
-			numbersGeneratedFromLimit[j] = False
-			print(numbersGeneratedFromLimit)
+    for (i, isprime) in enumerate(a):
+        if isprime:
+            yield i
+            for n in range(i*i, limit, i):     # Mark factors non-prime
+                a[n] = False
 
-for i in numbersGeneratedFromLimit:
-	if numbersGeneratedFromLimit[i] == True:
-		print(i)
+
+result = primes_sieve2(userInput)
+
+for items in result:
+	print(items)
 			
 
 
