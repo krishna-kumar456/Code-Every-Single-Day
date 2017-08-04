@@ -1,0 +1,2 @@
+""" Graph from links
+"""
