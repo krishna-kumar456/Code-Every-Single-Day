@@ -53,6 +53,16 @@ class Graph(object):
                     edges.append({vertex, neighbour})
         return edges
 
+    def get_degree(self):
+        """ A method to get the degree of vertices within 
+            for each vertex within the graph.
+        """
+        degree_of_vertices = {}
+        for vertex, neighbour in self.__graph_dict.items():
+            degree_of_vertices[vertex] = len(neighbour)
+
+        return degree_of_vertices
+
     def __str__(self):
         res = "vertices: "
         for k in self.__graph_dict:
@@ -103,3 +113,5 @@ if __name__ == "__main__":
     print(graph.vertices())
     print("Edges of graph:")
     print(graph.edges())
+    print("Degree of vertices")
+    print(graph.get_degree())
