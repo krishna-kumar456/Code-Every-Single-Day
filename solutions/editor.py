@@ -7,14 +7,23 @@ def openButtonClick(btnName):
 	""" Invoker function that is called whenever a button is clicked.
 	"""
 	print(btnName)
-	app.openBox(title=None, dirName=None, fileTypes=None, asFile=False)
+	fileName = app.openBox(title=None, dirName=None, fileTypes=None,
+							asFile=False)
+	print(fileName)
+	with open(fileName, 'r') as f:
+		title = 'text'
+		app.setTextArea(title, f.readlines(), callFunction=True)
+
 
 def saveButtonClick(btnName):
 	""" Invoker function that is called whenever a button is clicked.
 	"""
 
 	print(btnName)
-
+	saveFile = app.saveBox(title=None, fileName=None, dirName=None, fileExt=".txt", fileTypes=None, asFile=None)
+	with open(saveFile, 'w') as f:
+		title = 'text'
+		f.write(app.getTextArea(title))
 
 
 if __name__ == '__main__':
