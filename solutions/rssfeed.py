@@ -1,6 +1,6 @@
 import feedparser
 
-rss_feed_links = ['https://www.reddit.com/.rss']
+rss_feed_links = ['https://www.reddit.com/.rss', 'https://alvinalexander.com/rss.xml']
 
 for feed_link in rss_feed_links:
     d = feedparser.parse(feed_link)
